@@ -5,4 +5,4 @@ This is my course repository for OIM3690.
 - Name: Joana Barichello
 
 ## Links
-- [My Portfolio](https://username.github.io)
+- [My Portfolio](https://joanabari.github.io)
