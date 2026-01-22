@@ -1,2 +1,8 @@
-# Oim3690
-Course work for OIM3690
+# Oim3690 - Web Development
+This is my course repository for OIM3690.
+
+## About Me
+- Name: Joana Barichello
+
+## Links
+- [My Portfolio](https://username.github.io)
