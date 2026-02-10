@@ -1,1 +1,3 @@
+# S05 – Log
+
 This class was very good we learned were able to address our questions. I understood how to use terminal. Moving on, I plan to change my website so that it can look more unique to me.

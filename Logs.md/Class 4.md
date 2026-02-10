@@ -1,2 +1,3 @@
 # S04 – Class that I missed
+
 I was not here for class but I called my classmates and was able to catch up on all the work that I missed. I am currently making my website better and more customized to my personal taste.
