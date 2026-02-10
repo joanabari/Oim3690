@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joana Barichello — About Me</title>
+  <meta name="description" content="Joana Barichello — Student at Babson College, focused on Tech Entrepreneurship and Finance." />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.5; margin:0; padding:0 1rem; color:#111; }
+    header, main, footer { max-width:900px; margin:0 auto; }
+    header { padding:1rem 0; border-bottom:1px solid #e6e6e6; }
+    nav a { margin-right:1rem; text-decoration:none; color:#0366d6; }
+    .hero { display:flex; gap:1rem; align-items:center; padding:1rem 0; }
+    .avatar { width:140px; height:140px; object-fit:cover; border-radius:8px; }
+    .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .grid { display:grid; grid-template-columns: 1fr; gap:1rem; }
+    @media(min-width:700px){ .grid { grid-template-columns: 2fr 1fr; } }
+    section { padding:1rem 0; }
+    footer { padding:1rem 0; border-top:1px solid #e6e6e6; font-size:0.95rem; }
+    .contact-list { list-style:none; padding:0; margin:0; }
+    .contact-list li { margin-bottom:0.25rem; }
+    details summary { cursor:pointer; font-weight:600; }
+    .muted { color:#555; font-size:0.95rem; }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to main content</a>
+
+  <header role="banner" aria-label="Site header">
+    <div class="hero">
+      <div style="flex:1">
+        <h1>Joana Barichello</h1>
+        <p class="muted">I am 20 years old and I study at Babson College. Focus: Tech Entrepreneurship & Finance.</p>
+        <nav aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1" role="main">
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        I'm Joana Barichello, a 20-year-old student at Babson College pursuing a B.S. in Business Administration with a focus in
+        <mark>Tech Entrepreneurship</mark> and Finance. I build data-driven models, analyze financial statements, and help organizations adopt AI-driven automation to improve operations.
+      </p>
+      <blockquote cite="https://example.com">
+        <p>"I believe practical learning and data-driven decisions unlock scalable impact."</p>
+      </blockquote>
+    </section>
+
+    <section id="experience" aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Work Experience</h2>
+      <div class="grid">
+        <div>
+          <article aria-labelledby="agdev">
+            <h3 id="agdev">Consultant Intern — Ag Dev (Boston, MA)</h3>
+            <p class="muted"><time datetime="2025-08">Aug 2025</time> – <time datetime="2025-12">Dec 2025</time></p>
+            <ul>
+              <li>Analyzed financial documents and workflows to identify AI agent opportunities.</li>
+              <li>Recommended automation improvements projecting 40% faster operations and 35% fewer analyst hours.</li>
+            </ul>
+          </article>
+
+          <article aria-labelledby="zbn">
+            <h3 id="zbn">Summer Analyst — ZBN Investments (Porto Alegre, Brazil)</h3>
+            <p class="muted"><time datetime="2025-07">Jul 2025</time> – <time datetime="2025-08">Aug 2025</time></p>
+            <ul>
+              <li>Supported equity research and portfolio analysis for multi-portfolio investments.</li>
+            </ul>
+          </article>
+
+          <article aria-labelledby="mendo">
+            <h3 id="mendo">Consultant Intern — Mendo AI (Paris, France)</h3>
+            <p class="muted"><time datetime="2025-05">May 2025</time> – <time datetime="2025-07">Jul 2025</time></p>
+            <ul>
+              <li>Built a scoring model to evaluate US cities for market expansion and presented findings to stakeholders.</li>
+            </ul>
+          </article>
+
+          <article aria-labelledby="earthbound">
+            <h3 id="earthbound">Co-Founder, CFO — Earthbound Apparel (Wellesley, MA)</h3>
+            <p class="muted"><time datetime="2024-08">Aug 2024</time> – <time datetime="2025-05">May 2025</time></p>
+            <ul>
+              <li>Led financial operations, generating $3,000+ revenue and creating financial statements and forecasts.</li>
+            </ul>
+          </article>
+        </div>
+
+        <aside aria-label="Leadership & nonprofit highlights">
+          <h4>Leadership & Volunteer</h4>
+          <p class="muted">Founder — Future Leaders (Brazil) — March 2022 – Present</p>
+          <p class="muted">Junior League Fellow Research Program — Aug 2022 – Dec 2022</p>
+          <p class="muted">Member — Phi Gamma (Business Fraternity)</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="edu-heading">
+      <h2 id="edu-heading">Education</h2>
+      <p>
+        Babson College — B.S. in Business Administration.
+        <strong>GPA: 3.79</strong> — Expected graduation: <time datetime="2027-12">December 2027</time>.
+      </p>
+
+      <details>
+        <summary>Relevant coursework & honors</summary>
+        <ul>
+          <li>Business Analytics, Financial Accounting, Managerial Accounting, Principles of Finance</li>
+          <li>Awards: Dean’s List</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills & Interests</h2>
+      <ul>
+        <li><strong>Technical:</strong> SQL, Python, Tableau, QuickBooks, UiPath, Excel</li>
+        <li><strong>Languages:</strong> English, Portuguese, Spanish, Italian, French</li>
+      </ul>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <ul class="contact-list" aria-label="Contact information">
+        <li><strong>Email:</strong> <a href="mailto:joananbarichello@gmail.com">joananbarichello@gmail.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+17817520938">(781) 752-0938</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/joana-barichello-b13690284" target="_blank" rel="noopener noreferrer">joana-barichello</a></li>
+      </ul>
+      <p class="muted">Resume summary: experience in financial analysis, market research, automation strategy, and nonprofit leadership.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer">
+    <p class="muted">© <time datetime="2026">2026</time> Joana Barichello — Based in Wellesley, MA</p>
+  </footer>
+</body>
+</html>
+HTML
