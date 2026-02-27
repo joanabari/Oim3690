@@ -1,0 +1,25 @@
+/* Center title */
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center paragraph */
+body {
+    text-align: center;
+}
+
+/* Grid layout */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card styling */
+.project-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
