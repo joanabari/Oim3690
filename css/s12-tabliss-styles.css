@@ -8,21 +8,46 @@ body {
   background-repeat: no-repeat;
 
   background-attachment: fixed;
-}
 
-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-
+  /* base text */
   color: #fff;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.55);
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#time {
   font-size: clamp(64px, 12vw, 140px);
   font-weight: 700;
   letter-spacing: 2px;
+}
 
-  /* makes white text readable on bright photos */
-  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.55);
+/* small clickable links below the time */
+.social {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+  font-size: clamp(12px, 1.6vw, 16px);
+  font-weight: 400;
+  text-shadow: none;
+}
+
+.social a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.95;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.social a:hover {
+  text-decoration: underline;
 }
