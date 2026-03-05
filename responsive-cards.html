@@ -41,6 +41,13 @@
         display: flex;
         gap: 14px;
         align-items: center;
+        transition: background 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        background: #1a2338;
+        transform: translateY(-2px);
       }
 
       .avatar {
@@ -88,6 +95,13 @@
         background: #1c2947;
         border: 1px solid #2a3a66;
         color: #cfe0ff;
+        transition: background 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .tag:hover {
+        background: #2a3a66;
+        color: #ffffff;
       }
 
       /* Responsive breakpoints */
@@ -102,6 +116,31 @@
           grid-template-columns: repeat(3, 1fr);
         }
       }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 12px;
+        }
+        .card {
+          padding: 12px;
+          gap: 10px;
+        }
+        .avatar {
+          width: 48px;
+          height: 48px;
+          font-size: 16px;
+        }
+        .name {
+          font-size: 16px;
+        }
+        .role, .bio {
+          font-size: 13px;
+        }
+        .tag {
+          font-size: 11px;
+          padding: 4px 8px;
+        }
+      }
     </style>
   </head>
 
@@ -114,7 +153,7 @@
         <div class="card">
           <div class="avatar">AL</div>
           <div>
-            <p class="name">Alex Lee</p>
+            <p class="name">Joana Barichello</p>
             <p class="role">Team Member</p>
             <p class="bio">Likes building clean layouts and learning new web features.</p>
             <div class="tags">
@@ -128,7 +167,7 @@
         <div class="card">
           <div class="avatar">MJ</div>
           <div>
-            <p class="name">Maya Jones</p>
+            <p class="name">Lexie Collier</p>
             <p class="role">Designer</p>
             <p class="bio">Enjoys making pages look polished and easy to use.</p>
             <div class="tags">
@@ -142,7 +181,7 @@
         <div class="card">
           <div class="avatar">SP</div>
           <div>
-            <p class="name">Sam Park</p>
+            <p class="name">Gabriella Nascimento</p>
             <p class="role">Developer</p>
             <p class="bio">Works on responsive layouts and making websites mobile-friendly.</p>
             <div class="tags">
@@ -156,9 +195,9 @@
         <div class="card">
           <div class="avatar">JR</div>
           <div>
-            <p class="name">Jordan Reed</p>
-            <p class="role">Student</p>
-            <p class="bio">Learning how to connect inputs, labels, and buttons correctly.</p>
+            <p class="name">Dr.Li</p>
+            <p class="role">Leader of the group</p>
+            <p class="bio">Knows everything</p>
             <div class="tags">
               <span class="tag">Labels</span>
               <span class="tag">Inputs</span>
