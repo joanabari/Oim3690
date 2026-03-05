@@ -10,20 +10,44 @@
   </head>
 
   <body>
-   <form action="https://www.amazon.com/s" method="get">
-    
-    <label for="name">Name:</label>
+ <form action="mailto:zli@babson.edu" method="get">
 
-    <input
-      type="text"
-      id="name"
-      placeholder="Enter your name"
-      name="k"
-      required
-    />
+  <label for="name">Name:</label>
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter your name"
+    name="k"
+    required
+  />
 
-    <button type="submit">Submit</button>
+  <label for="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    placeholder="Enter your email"
+    name="email"
+    required
+  />
 
-  </form>
+  <label for="subject">Subject:</label>
+  <input
+    type="text"
+    id="subject"
+    placeholder="Enter subject"
+    name="subject"
+    required
+  />
+
+  <label for="body">Message:</label>
+  <textarea
+    id="body"
+    name="body"
+    placeholder="Enter your message"
+  ></textarea>
+
+  <button type="submit">Submit</button>
+
+</form>
 </body>
 </html>
