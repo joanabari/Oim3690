@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Cards</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        margin: 0;
+        padding: 24px;
+        background: #0b1220;
+        color: #e9eefc;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+      }
+
+      p {
+        margin: 0 0 18px;
+        color: #b7c2e6;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        background: #121a2c;
+        border: 1px solid #223055;
+        border-radius: 14px;
+        padding: 18px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #2a3a66;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 18px;
+        flex: 0 0 auto;
+      }
+
+      .name {
+        font-size: 18px;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      .role {
+        margin: 2px 0 8px;
+        color: #b7c2e6;
+        font-size: 14px;
+      }
+
+      .bio {
+        margin: 0;
+        color: #d6defa;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .tags {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #1c2947;
+        border: 1px solid #2a3a66;
+        color: #cfe0ff;
+      }
+
+      /* Responsive breakpoints */
+      @media (min-width: 700px) {
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1000px) {
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <h1>Responsive Profile Cards</h1>
+      <p>These cards reflow on different screen sizes (try mobile device mode).</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="avatar">AL</div>
+          <div>
+            <p class="name">Alex Lee</p>
+            <p class="role">Team Member</p>
+            <p class="bio">Likes building clean layouts and learning new web features.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Flex/Grid</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="avatar">MJ</div>
+          <div>
+            <p class="name">Maya Jones</p>
+            <p class="role">Designer</p>
+            <p class="bio">Enjoys making pages look polished and easy to use.</p>
+            <div class="tags">
+              <span class="tag">UI</span>
+              <span class="tag">Spacing</span>
+              <span class="tag">Color</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="avatar">SP</div>
+          <div>
+            <p class="name">Sam Park</p>
+            <p class="role">Developer</p>
+            <p class="bio">Works on responsive layouts and making websites mobile-friendly.</p>
+            <div class="tags">
+              <span class="tag">Responsive</span>
+              <span class="tag">Forms</span>
+              <span class="tag">Accessibility</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="avatar">JR</div>
+          <div>
+            <p class="name">Jordan Reed</p>
+            <p class="role">Student</p>
+            <p class="bio">Learning how to connect inputs, labels, and buttons correctly.</p>
+            <div class="tags">
+              <span class="tag">Labels</span>
+              <span class="tag">Inputs</span>
+              <span class="tag">Buttons</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
