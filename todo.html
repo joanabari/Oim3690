@@ -143,6 +143,26 @@
             font-size: 14px;
             color: #666;
         }
+
+        .balloon {
+            position: fixed;
+            width: 30px;
+            height: 40px;
+            border-radius: 50% 50% 50% 0;
+            pointer-events: none;
+            animation: float 3s ease-in forwards;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -224,6 +244,31 @@
                 todo.completed = !todo.completed;
                 saveTodos();
                 renderTodos();
+                
+                // Trigger celebration if task is completed
+                if (todo.completed) {
+                    celebrate();
+                }
+            }
+        }
+
+        function celebrate() {
+            const balloonColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F'];
+            
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                    balloon.style.left = Math.random() * window.innerWidth + 'px';
+                    balloon.style.bottom = '0px';
+                    document.body.appendChild(balloon);
+                    
+                    // Remove balloon after animation
+                    setTimeout(() => {
+                        balloon.remove();
+                    }, 3000);
+                }, i * 100);
             }
         }
 
