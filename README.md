@@ -7,6 +7,6 @@ This is my course repository for OIM3690.
 ## Projects
 - [My Portfolio](https://joanabari.github.io)
 - [My Fitness](https://github.com/joanabari/myfitness)
-
+- [My Fitness](https://github.com/joanabari/myfitness)
 
 
