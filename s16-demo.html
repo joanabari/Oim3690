@@ -72,6 +72,13 @@
       <h3>5. The Surprise Button</h3>
       <button onclick="surpriseMe()">I dare you to click on me!</button>
     </div>
+
+    <div class="demo-section">
+      <h3>6. Query Selector Demo</h3>
+      <p>Click the button to see document.querySelector in action:</p>
+      <button id="queryBtn">Query Selector Button</button>
+      <p id="queryResult"></p>
+    </div>
     <script>
       function changeBackgroundColor() {
         const bgColors = [
@@ -112,7 +119,7 @@
         enlargeImage();
       });
 
-      document.getElementById("timeBtn").addEventListener("click", () => {
+      document.querySelector("#timeBtn").addEventListener("click", () => {
         const now = new Date();
         const timeString = now.toLocaleTimeString();
         const dateString = now.toLocaleDateString();
@@ -131,7 +138,7 @@
       }
 
       document
-        .getElementById("toggleBtn")
+        .querySelector("#toggleBtn")
         .addEventListener("click", function () {
           toggleText();
         });
@@ -143,6 +150,14 @@
           window.open("https://youtu.be/dQw4w9WgXcQ", "_blank");
         }
       }
+
+      document
+        .querySelector("#queryBtn")
+        .addEventListener("click", function () {
+          const selectedElement = document.querySelector("h1");
+          document.getElementById("queryResult").textContent = `Selected element: ${selectedElement.tagName} with text: "${selectedElement.textContent}"`;
+          console.log("Query selector demo: selected h1 element", selectedElement);
+        });
 
       document.addEventListener("DOMContentLoaded", function () {
         console.log("🎮 Welcome to JavaScript Playground!");
