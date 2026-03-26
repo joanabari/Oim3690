@@ -13,14 +13,14 @@
     <p></p>
 
     <script>
-        
-const input = document.querySelector('#name');
-const button = document.querySelector('button');
-const output = document.querySelector('p');
 
-button.addEventListener('click', () => {
-    const name = input.value;
-    output.textContent = `Hello, ${name}!`;
+const name = document.querySelector("#name");
+const btn = document.querySelector("button");
+const p = document.querySelector("p");
+
+btn.addEventListener("click", function () {
+    const nameValue = name.value;
+    p.textContent = `Hello, ${nameValue}!`;
 });
     </script>
 
