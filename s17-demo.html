@@ -20,9 +20,22 @@
         age = age + 5; // This will cause an error because age is a constant
         console.log('In 5 years, you will be ' + age + ' years old.');
 
-        Boolean;
+        // Boolean
         let isEmployed = true;
-        console.log('Is Michael employed? ' + isEmployed);
+        console.log(`Is ${name} employed? ${isEmployed}`);
+
+        if (isEmployed) {
+        console.log(`${name} is working at Dunder Mifflin.`);
+        } else {
+        console.log(`${name} is currently unemployed.`);
+        }
+
+        // undefined and null
+        let officeLocation; // This variable is undefined
+        console.log(`Office location: ${officeLocation}`);
+
+        let manager = null; // This variable is null
+        console.log(`Manager of Dunder Mifflin is ${manager}.`);
         
     </script>
 </body>
