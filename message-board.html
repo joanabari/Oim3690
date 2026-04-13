@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Board</title>
+</head>
+<body>
+
+<h1>Class Message Board</h1>
+
+<ul id="messages"></ul>
+
+<input id="input" type="text" placeholder="Write message..." />
+<button id="send">Send</button>
+
+<script>
+  const list = document.getElementById('messages');
+  const input = document.getElementById('input');
+  const button = document.getElementById('send');
+
+  const TOKEN = "joanajoana"; // replace with your first name twice
+
+  async function loadMessages() {
+    const res = await fetch('https://oim.108122.xyz/messages');
+    const data = await res.json();
+
+    list.innerHTML = '';
+
+    for (let i = 0; i < data.length; i++) {
+      const li = document.createElement('li');
+      li.textContent = data[i].message;
+      list.appendChild(li);
+    }
+  }
+
+  button.addEventListener('click', async () => {
+    const msg = input.value;
+
+    if (!msg) return;
+
+    await fetch('https://oim.108122.xyz/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Token': TOKEN
+      },
+      body: JSON.stringify({ message: msg })
+    });
+
+    input.value = '';
+    loadMessages();
+  });
+
+  loadMessages();
+</script>
+
+</body>
+</html>

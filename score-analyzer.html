@@ -3,20 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <title>Score Analyzer</title>
+  <style>
+    .bar {
+      height: 20px;
+      margin: 5px 0;
+      color: white;
+      padding-left: 5px;
+    }
+
+    .green { background-color: green; }
+    .orange { background-color: orange; }
+    .red { background-color: red; }
+  </style>
 </head>
 <body>
 
 <h1>Score Analyzer</h1>
 
-<div id="output"></div>
+<div id="stats"></div>
+
+<h3>Score Bars</h3>
+<div id="bars"></div>
+
+<h3>Grade Distribution</h3>
+<div id="distribution"></div>
+
+<input id="scoreInput" type="number" placeholder="Enter score" />
+<button id="addBtn">Add Score</button>
 
 <script>
   const scores = [88, 72, 95, 63, 81, 56, 90];
 
-  let total = 0;
-  let highest = scores[0];
-  let lowest = scores[0];
-  let passing = 0;
+  const statsDiv = document.getElementById('stats');
+  const barsDiv = document.getElementById('bars');
+  const distDiv = document.getElementById('distribution');
+  const input = document.getElementById('scoreInput');
+  const button = document.getElementById('addBtn');
 
   function getGrade(score) {
     if (score >= 90) return 'A';
@@ -26,36 +48,90 @@
     return 'F';
   }
 
-  for (let i = 0; i < scores.length; i++) {
-    total += scores[i];
-
-    if (scores[i] > highest) highest = scores[i];
-    if (scores[i] < lowest) lowest = scores[i];
-
-    if (scores[i] >= 60) passing++;
+  function getColor(grade) {
+    if (grade === 'A' || grade === 'B') return 'green';
+    if (grade === 'C' || grade === 'D') return 'orange';
+    return 'red';
   }
 
-  const average = (total / scores.length).toFixed(1);
+  function render() {
+    let total = 0;
+    let highest = scores[0];
+    let lowest = scores[0];
+    let passing = 0;
 
-  const output = document.getElementById('output');
+    let gradeCount = { A: 0, B: 0, C: 0, D: 0, F: 0 };
 
-  let html = `
-    <p>Total scores: ${scores.length}</p>
-    <p>Average score: ${average}</p>
-    <p>Highest score: ${highest}</p>
-    <p>Lowest score: ${lowest}</p>
-    <p>Passing scores: ${passing}</p>
-    <h3>Scores with Grades:</h3>
-    <ul>
-  `;
+    // LOOP through scores
+    for (let i = 0; i < scores.length; i++) {
+      const score = scores[i];
 
-  for (let i = 0; i < scores.length; i++) {
-    html += `<li>${scores[i]} (${getGrade(scores[i])})</li>`;
+      total += score;
+
+      if (score > highest) highest = score;
+      if (score < lowest) lowest = score;
+
+      if (score >= 60) passing++;
+
+      const grade = getGrade(score);
+      gradeCount[grade]++;
+    }
+
+    const avg = (total / scores.length).toFixed(1);
+
+    // PART 1: Stats
+    statsDiv.innerHTML = `
+      <p>Total scores: ${scores.length}</p>
+      <p>Average: ${avg}</p>
+      <p>Highest: ${highest}</p>
+      <p>Lowest: ${lowest}</p>
+      <p>Passing (>=60): ${passing}</p>
+    `;
+
+    // PART 2: Bars
+    barsDiv.innerHTML = '';
+
+    for (let i = 0; i < scores.length; i++) {
+      const score = scores[i];
+      const grade = getGrade(score);
+      const colorClass = getColor(grade);
+
+      const bar = document.createElement('div');
+      bar.className = `bar ${colorClass}`;
+      bar.style.width = score + '%';
+      bar.textContent = `${score} (${grade})`;
+
+      barsDiv.appendChild(bar);
+    }
+
+    // PART 3: Grade distribution
+    distDiv.innerHTML = '';
+
+    for (let grade in gradeCount) {
+      const count = gradeCount[grade];
+
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      bar.style.width = (count * 20) + 'px'; // scale for visibility
+      bar.style.backgroundColor = 'gray';
+      bar.textContent = `${grade}: ${count}`;
+
+      distDiv.appendChild(bar);
+    }
   }
 
-  html += `</ul>`;
+  // PART 4: Add new scores
+  button.addEventListener('click', () => {
+    const value = Number(input.value);
 
-  output.innerHTML = html;
+    if (!isNaN(value) && value >= 0 && value <= 100) {
+      scores.push(value);
+      input.value = '';
+      render();
+    }
+  });
+
+  render();
 </script>
 
 </body>
