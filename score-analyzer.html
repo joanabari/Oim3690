@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Score Analyzer</title>
+</head>
+<body>
+
+<h1>Score Analyzer</h1>
+
+<div id="output"></div>
+
+<script>
+  const scores = [88, 72, 95, 63, 81, 56, 90];
+
+  let total = 0;
+  let highest = scores[0];
+  let lowest = scores[0];
+  let passing = 0;
+
+  function getGrade(score) {
+    if (score >= 90) return 'A';
+    if (score >= 80) return 'B';
+    if (score >= 70) return 'C';
+    if (score >= 60) return 'D';
+    return 'F';
+  }
+
+  for (let i = 0; i < scores.length; i++) {
+    total += scores[i];
+
+    if (scores[i] > highest) highest = scores[i];
+    if (scores[i] < lowest) lowest = scores[i];
+
+    if (scores[i] >= 60) passing++;
+  }
+
+  const average = (total / scores.length).toFixed(1);
+
+  const output = document.getElementById('output');
+
+  let html = `
+    <p>Total scores: ${scores.length}</p>
+    <p>Average score: ${average}</p>
+    <p>Highest score: ${highest}</p>
+    <p>Lowest score: ${lowest}</p>
+    <p>Passing scores: ${passing}</p>
+    <h3>Scores with Grades:</h3>
+    <ul>
+  `;
+
+  for (let i = 0; i < scores.length; i++) {
+    html += `<li>${scores[i]} (${getGrade(scores[i])})</li>`;
+  }
+
+  html += `</ul>`;
+
+  output.innerHTML = html;
+</script>
+
+</body>
+</html>
