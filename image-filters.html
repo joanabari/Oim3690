@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Filters</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    #rgb-info {
+      display: inline-block;
+      padding: 8px 16px;
+      min-width: 200px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Image Filters</h1>
+
+  <div>
+    <canvas id="original-canvas"></canvas>
+    <canvas id="filtered-canvas"></canvas>
+  </div>
+
+  <div>
+    <button onclick="grayscale()">Grayscale</button>
+    <button onclick="invert()">Invert</button>
+    <button onclick="resetImage()">Reset</button>
+  </div>
+
+  <p id="rgb-info">RGB: ---</p>
+
+  <script>
+    const img = new Image();
+    img.src = "images/tiger1.jpg";
+
+    const originalCanvas = document.getElementById("original-canvas");
+    const filteredCanvas = document.getElementById("filtered-canvas");
+
+    const oCtx = originalCanvas.getContext("2d");
+    const fCtx = filteredCanvas.getContext("2d");
+
+    let originalData;
+
+    img.onload = () => {
+      originalCanvas.width = img.width;
+      originalCanvas.height = img.height;
+
+      filteredCanvas.width = img.width;
+      filteredCanvas.height = img.height;
+
+      oCtx.drawImage(img, 0, 0);
+      fCtx.drawImage(img, 0, 0);
+
+      originalData = fCtx.getImageData(0, 0, img.width, img.height);
+    };
+
+    function grayscale() {
+      let imageData = fCtx.getImageData(0, 0, filteredCanvas.width, filteredCanvas.height);
+      let data = imageData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        let avg = (data[i] + data[i+1] + data[i+2]) / 3;
+        data[i] = avg;
+        data[i+1] = avg;
+        data[i+2] = avg;
+      }
+
+      fCtx.putImageData(imageData, 0, 0);
+    }
+
+    function invert() {
+      let imageData = fCtx.getImageData(0, 0, filteredCanvas.width, filteredCanvas.height);
+      let data = imageData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        data[i] = 255 - data[i];     // R
+        data[i+1] = 255 - data[i+1]; // G
+        data[i+2] = 255 - data[i+2]; // B
+      }
+
+      fCtx.putImageData(imageData, 0, 0);
+    }
+
+    function resetImage() {
+      fCtx.putImageData(originalData, 0, 0);
+    }
+
+    // Show RGB on click
+    filteredCanvas.addEventListener("click", (e) => {
+      const rect = filteredCanvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const pixel = fCtx.getImageData(x, y, 1, 1).data;
+      document.getElementById("rgb-info").textContent =
+        `RGB: (${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+    });
+  </script>
+</body>
+</html>
